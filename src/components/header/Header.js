@@ -4,9 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/pngwing.com.png";
 
 const headerNav = [
-  { display: "Home", path: "/" },
-  { display: "Movies", path: "/movie" },
-  { display: "Tv Series", path: "/tv" },
+  { display: "Home", path: "/react-movie/" },
+  { display: "Movies", path: "/react-movie/movie" },
+  { display: "Tv Series", path: "/react-movie/tv" },
 ];
 const Header = () => {
   const { pathname } = useLocation();
@@ -14,7 +14,7 @@ const Header = () => {
   const headerRef = useRef(null);
 
   const active = headerNav.findIndex((e) => e.path === pathname);
-
+  console.log("pathname:", pathname, "active:", active);
   useEffect(() => {
     const shrinkHeader = () => {
       if (
@@ -37,7 +37,7 @@ const Header = () => {
       <div className="header__wrap container">
         <div className="logo">
           <img src={logo} alt="logo" />
-          <Link to="/">QBMovies</Link>
+          <Link to="/react-movie/">QBMovies</Link>
         </div>
         <ul className="header__nav">
           {headerNav.map((e, i) => (

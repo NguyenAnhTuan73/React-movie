@@ -20,13 +20,29 @@
   &__content {
     padding: 2rem;
     background-color: $body-bg;
-    width: 50%;
+    width: 80%;
+    height: auto;
     opacity: 0;
     transform: translateY(-250px);
     transition: transform 0.6s ease, opacity 0.6s ease;
-
     @include table {
       width: 80%;
+    }
+
+    @include table {
+      width: 90%;
+    }
+    @include mobile {
+      width: 100%;
+    }
+    iframe {
+      height: 500px;
+      @include table {
+        height: 400px;
+      }
+      @include mobile {
+        height: 300px;
+      }
     }
     &__close {
       position: absolute;

@@ -89,7 +89,9 @@ const MovieSearch = (props) => {
 
   const goToSearch = useCallback(() => {
     if (keyword.trim().length > 0) {
-      history.push(`/${category[props.category]}/search/${keyword}}`);
+      history.push(
+        `/react-movie/${category[props.category]}/search/${keyword}}`
+      );
     }
     setKeyWord("");
   }, [keyword, props.category, history]);

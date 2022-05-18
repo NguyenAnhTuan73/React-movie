@@ -26,10 +26,6 @@
     &__menus {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-
-      @include mobile {
-        grid-template-columns: repeat(1, 1fr);
-      }
     }
     &__menu {
       @include flex(flex-start, flex-start);

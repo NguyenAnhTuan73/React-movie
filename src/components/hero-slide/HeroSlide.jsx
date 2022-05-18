@@ -12,7 +12,7 @@ const HeroSlide = () => {
   SwiperCore.use = [Autoplay];
   const [movieItems, setMovieItems] = useState([]);
 
-  const getVideos = async () => {
+  const getMovies = async () => {
     const params = { page: 1 };
 
     try {
@@ -26,7 +26,7 @@ const HeroSlide = () => {
   };
 
   useEffect(() => {
-    getVideos();
+    getMovies();
   }, []);
 
   return (
@@ -40,10 +40,13 @@ const HeroSlide = () => {
         {movieItems.map((item, i) => (
           <SwiperSlide key={i}>
             {({ isActive }) => (
-              <HeroSlideItem
-                item={item}
-                className={`${isActive ? "active" : ""}`}
-              />
+              <>
+                {console.log("isactive", isActive)}
+                <HeroSlideItem
+                  item={item}
+                  className={`${isActive ? "active" : ""}`}
+                />
+              </>
             )}
           </SwiperSlide>
         ))}
@@ -87,7 +90,9 @@ const HeroSlideItem = (props) => {
           <h2 className="title">{item.title}</h2>
           <div className="overview">{item.overview}</div>
           <div className="btns">
-            <Button onClick={() => history.push("/movie/" + item.id)}>
+            <Button
+              onClick={() => history.push("/react-movie/movie/" + item.id)}
+            >
               Watch now
             </Button>
             <OutlineButton onClick={setModalActive}>
@@ -109,12 +114,7 @@ const TrailerModal = (props) => {
   return (
     <Modal active={false} id={`modal_${item.id}`}>
       <ModalContent onClose={onClose}>
-        <iframe
-          ref={iframeRef}
-          width="100%"
-          height="500px"
-          title="trailer"
-        ></iframe>
+        <iframe ref={iframeRef} width="100%" title="trailer"></iframe>
       </ModalContent>
     </Modal>
   );

@@ -9,7 +9,6 @@ const Catalog = () => {
   console.log("check:", category);
   return (
     <div>
-      Catalog
       <PageHeader>
         {category === cate.movie ? "Movies" : "TV Series"}
       </PageHeader>
