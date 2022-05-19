@@ -14,7 +14,7 @@ const Detail = () => {
     const getDetail = async () => {
       const response = await tmdbApi.detail(category, id, { params: {} });
       setItem(response);
-      console.log("check detail", response);
+      console.log("check detail", response, "categofy", category, id);
     };
     getDetail();
   }, [category, id]);

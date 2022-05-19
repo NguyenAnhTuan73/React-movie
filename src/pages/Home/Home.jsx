@@ -4,7 +4,7 @@ import HeroSlide from "../../components/hero-slide/HeroSlide";
 import "./home.scss";
 import { Link } from "react-router-dom";
 import MovieList from "../../components/movie-list/MovieList";
-import { category, movieType } from "../../api/tmdbApi";
+import { category, movieType, tvType } from "../../api/tmdbApi";
 const Home = () => {
   return (
     <div>
@@ -13,7 +13,7 @@ const Home = () => {
         <div className="section mb-3">
           <div className="section__header mb-2">
             <h2>Trending Movies</h2>
-            <Link to="/movie">
+            <Link to="/react-movie/movie">
               <OutlineButton className="small">View more</OutlineButton>
             </Link>
           </div>
@@ -23,7 +23,7 @@ const Home = () => {
         <div className="section mb-3">
           <div className="section__header mb-2">
             <h2>Top Reted Movies</h2>
-            <Link to="/movie">
+            <Link to="/react-movie/movie">
               <OutlineButton className="small">View more</OutlineButton>
             </Link>
           </div>
@@ -33,21 +33,21 @@ const Home = () => {
         <div className="section mb-3">
           <div className="section__header mb-2">
             <h2>Trending TV</h2>
-            <Link to="/tv">
+            <Link to="/react-movie/tv">
               <OutlineButton className="small">View more</OutlineButton>
             </Link>
           </div>
-          <MovieList category={category.tv} type={movieType.popular} />
+          <MovieList category={category.tv} type={tvType.popular} />
         </div>
 
         <div className="section mb-3">
           <div className="section__header mb-2">
             <h2>Top Rate TV</h2>
-            <Link to="/tv">
+            <Link to="/react-movie/tv">
               <OutlineButton className="small">View more</OutlineButton>
             </Link>
           </div>
-          <MovieList category={category.tv} type={movieType.top_rated} />
+          <MovieList category={category.tv} type={tvType.top_rated} />
         </div>
       </div>
     </div>

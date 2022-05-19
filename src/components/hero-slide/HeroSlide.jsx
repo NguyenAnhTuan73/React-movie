@@ -40,13 +40,10 @@ const HeroSlide = () => {
         {movieItems.map((item, i) => (
           <SwiperSlide key={i}>
             {({ isActive }) => (
-              <>
-                {console.log("isactive", isActive)}
-                <HeroSlideItem
-                  item={item}
-                  className={`${isActive ? "active" : ""}`}
-                />
-              </>
+              <HeroSlideItem
+                item={item}
+                className={`${isActive ? "active" : ""}`}
+              />
             )}
           </SwiperSlide>
         ))}

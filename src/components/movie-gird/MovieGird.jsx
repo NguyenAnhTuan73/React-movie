@@ -27,6 +27,7 @@ const MovieGird = (props) => {
             response = await tmdbApi.getTvList(tvType.popular, { params });
         }
       } else {
+        console.log("keyword", keyword);
         const params = {
           query: keyword,
         };
@@ -65,6 +66,7 @@ const MovieGird = (props) => {
       <div className="section mb-3">
         <MovieSearch category={props.category} keyword={keyword} />
       </div>
+
       <div className="movie-gird">
         {items.map((item, i) => (
           <MovieCard category={props.category} key={i} item={item} />
@@ -86,14 +88,14 @@ const MovieSearch = (props) => {
   const history = useHistory();
 
   const [keyword, setKeyWord] = useState(props.keyword ? props.keyword : "");
-
+  console.log("keyw1", keyword);
   const goToSearch = useCallback(() => {
     if (keyword.trim().length > 0) {
       history.push(
         `/react-movie/${category[props.category]}/search/${keyword}}`
       );
     }
-    setKeyWord("");
+    // setKeyWord("");
   }, [keyword, props.category, history]);
 
   useEffect(() => {
